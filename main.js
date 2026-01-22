@@ -12,7 +12,6 @@ let combinazioni = [
     [0,3,6], [1,4,7], [2,5,8], 
     [0,4,8], [2,4,6]
 ];
-
 for (let i = 0; i < tavola1.length; i++) {
     tavola1[i].addEventListener("click",()=>giuoca(i));
 }
@@ -39,7 +38,6 @@ if (!tavola2.includes("")) {
     acceso = false;
     return;
 }
-
 if (turno === "X") {
 turno = "O";
 } else {
@@ -47,11 +45,13 @@ turno = "X";
 }
 stato.textContent = "Turno di: " + turno;
 }
-
 function reset() {
     tavola2 = ["", "", "", "", "", "", "", "", ""];
     turno = "X";
     acceso = true;
     stato.textContent = "Turno di: X";
     tavola1.forEach(cell => cell.textContent = "");
+    for (let i = 0; i < tavola1.length; i++) {
+        tavola1[i].textContent = "";
+    }
 }
